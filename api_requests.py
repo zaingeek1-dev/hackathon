@@ -18,8 +18,9 @@ def get_neo_feed(start_date, end_date):
     for date in meteors:
         for neo in meteors[date]:
             name = neo.get('name', 'no name')
+            designation = neo.get('designation')
             danger = neo.get('is_potentially_hazardous_asteroid')
             size = neo.get('estimated_diameter', {}).get('kilometers', {}).get('estimated_diameter_max')
-            print(name, danger, size)
-
+            print(f"Name: {name}, Designation: {designation}, Dangerous: {danger}, Size: {size}")
+            
 get_neo_feed('2025-10-04', '2025-10-06')
